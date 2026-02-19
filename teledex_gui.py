@@ -1,9 +1,11 @@
+from pgsql_supabase import get_db_connection, insert_entry, fetch_data
 import tkinter as tk
 from tkinter import messagebox
 import threading
 import requests
-from pgsql_supabase import get_connection
+
 from telemetry_engine import plot_entry, plot_prediction  # your plotting math engine
+
 
 # --- ROOT WINDOW ---
 root = tk.Tk()
@@ -51,17 +53,20 @@ for i in range(3):
             x_unit = rows[r]["x_var"].get()
             y_input = rows[r]["y_entry"].get()
 
-            # Save to Supabase
-            try:
-                conn = get_connection()
-                cur = conn.cursor()
-                value = float(y_input.split()[0])
-                cur.execute("INSERT INTO telemetry (label, value) VALUES (%s,%s)", (label, value))
-                conn.commit()
-                cur.close()
-                conn.close()
-            except Exception as e:
-                messagebox.showerror("Database Error", str(e))
+            # --- TEMPORARY TEST: skip DB write ---
+            # try:
+            #     conn = get_db_connection()
+            #     cur = conn.cursor()
+            #     value = float(y_input.split()[0])
+            #     cur.execute("INSERT INTO telemetry (label, value) VALUES (%s,%s)", (label, value))
+            #     conn.commit()
+            #     cur.close()
+            #     conn.close()
+            # except Exception as e:
+            #     messagebox.showerror("Database Error", str(e))
+
+            print(f"TEST: {label=} {y_input=} {x_unit=}")
+
 
             # Plot
             plot_entry({"label": label, "x": x_unit, "y": y_input}, position=positions[r])
