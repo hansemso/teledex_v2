@@ -140,8 +140,51 @@ weather_pad.pack(pady=5)
 tk.Button(root, text="Update Weather", width=20,
           command=lambda: threading.Thread(target=show_weather, daemon=True).start()).pack(pady=5)
 
+import random
+import time
+
+def auto_feed():
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        # --- 1. Coffee Mug Sales (simulate increasing sales)
+        coffee_value = random.randint(20, 100) + int(time.time() // 60)  # increase over time   
+        cur.execute(
+            "INSERT INTO telemetry (label, value) VALUES (%s,%s)",
+            ("Sale of coffee mugs", coffee_value)
+        )
+
+        # --- 2. Resting Heart Rate (simulate normal human range)
+        heart_value = random.randint(55, 75)
+        cur.execute(
+            "INSERT INTO telemetry (label, value) VALUES (%s,%s)",
+            ("Resting heart rate", heart_value)
+        )
+
+        # --- 3. Apricot Stock (simulate stock fluctuation)
+        stock_value = random.uniform(95, 115)
+        cur.execute(
+            "INSERT INTO telemetry (label, value) VALUES (%s,%s)",
+            ("Price of Apricot stock", round(stock_value, 2))
+        )
+
+        conn.commit()
+        cur.close()
+        conn.close()
+
+        print("Auto-feed inserted new data.")
+
+    except Exception as e:
+        print("Auto-feed error:", e)
+
+    # Run again in 60 seconds
+    root.after(60000, auto_feed)
+
+
 # --- START APP ---
 if __name__ == "__main__":
     root.after(1000, auto_refresh_weather)
+    root.after(5000, auto_feed)  # start auto feed after 5 seconds
     show_weather()
     root.mainloop()

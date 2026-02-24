@@ -5,7 +5,7 @@
 ## 🚀 Overview
 
 Teledex is a sticky-note style desktop gui app for general office use with these features:
---A 3 column x 3 row user input field as follows: 
+--A 3 column x 3 row user input/display field as follows: 
     > Column 1 allows user to make a label/title for each row.  
     > Column 2 displays "0" by default. Clicking adjacent "UPDATE" icon increments by 1.  Otherwise, can click directly on the input box and enter custom entry.   
     > Column 3 displays "PLOT" button icons for displaying plots for each row of entries. Clicking changes plot by month, week, then day. Plots are displayed in a pop-up window to the left, top, or right of the gui icon for rows 1, 2, or 3 respectively. Clicking again retracts plot back into app.     
@@ -31,6 +31,10 @@ Matplotlib Visualization
 
 ## 📌 Future Enhancements
 
+- --A 3 x 1 row user input/display field comprising: 
+    > database name: Displays current database name. Click to change.
+    > timestamp: Display time of entry.
+    > security: Displays enterer's name. Requests security code if secure database entered in column 1. 
 - Android version
 - Combine plots onto one plot.  
 
