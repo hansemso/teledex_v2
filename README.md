@@ -50,3 +50,19 @@ Open a terminal or command prompt and run:
 ```bash
 git clone https://github.com/yourusername/teledex.git
 cd teledex
+
+teledex_gui.py
+│
+├── gui/
+│   ├── telemetry_panel.py
+│   ├── weather_panel.py
+│   ├── control_panel.py  
+│
+├── engines/
+│   ├── quiz_engine.py
+│   ├── py_prac.py
+│   ├── telemetry_engine.py
+│
+├── services/
+│   ├── weather_service.py
+│   ├── db_service.py
