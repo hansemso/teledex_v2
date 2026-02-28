@@ -29,7 +29,6 @@ telemetry_frame.pack(fill="x", pady=10)
 
 rows = []
 x_options = ["days", "hours", "mins"]
-positions = ["left", "top", "right"]
 
 
 # -------------------------------
@@ -51,7 +50,7 @@ for i in range(3):
         def cycle():
             current = var.get()
             idx = x_options.index(current)
-            var.set(x_options[(idx+1) % len(x_options)])
+            var.set(x_options[(idx + 1) % len(x_options)])
         return cycle
 
     tk.Button(
@@ -69,15 +68,14 @@ for i in range(3):
     def make_plot(r=i):
         def do_plot():
             label = rows[r]["label"].get()
-            x_unit = rows[r]["x_var"].get()
             y_input = rows[r]["y_entry"].get()
 
-            print(f"TEST: {label=} {y_input=} {x_unit=}")
+            print(f"TEST: label='{label}' y_input='{y_input}'")
 
-            plot_entry(
-                {"label": label, "x": x_unit, "y": y_input},
-                position=positions[r]
-            )
+            try:
+                plot_entry(label, float(y_input))
+            except Exception as e:
+                print("Plot error:", e)
 
         return do_plot
 
@@ -92,8 +90,7 @@ for i in range(3):
     def make_predict(r=i):
         def do_predict():
             label = rows[r]["label"].get()
-            x_unit = rows[r]["x_var"].get()
-            plot_prediction(label, x_unit=x_unit, horizon=5)
+            plot_prediction(label, horizon=5)
 
         return do_predict
 

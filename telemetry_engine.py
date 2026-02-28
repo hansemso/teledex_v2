@@ -1,86 +1,167 @@
+# telemetry_engine.py
+# Offline-first telemetry storage system
+
+import os
+import psycopg2
+from dotenv import load_dotenv
 import matplotlib.pyplot as plt
 import numpy as np
-from pgsql_supabase import get_db_connection  # make sure this matches your db function
 
-# --- Fetch numeric data from Supabase ---
-def fetch_data(label):
-    """
-    Fetch all values for a given label from telemetry table.
-    Returns a list of floats.
-    """
+load_dotenv()
+
+# ===============================
+# Configuration
+# ===============================
+
+DB_HOST = os.getenv("SUPABASE_HOST")
+DB_NAME = os.getenv("SUPABASE_DB", "postgres")
+DB_USER = os.getenv("SUPABASE_USER", "postgres")
+DB_PASSWORD = os.getenv("SUPABASE_PASSWORD")
+DB_PORT = int(os.getenv("SUPABASE_PORT", 5432))
+
+_memory_cache = {}
+
+# ===============================
+# Safe Database Connection
+# ===============================
+
+def safe_connect():
+    if not DB_HOST or not DB_PASSWORD:
+        return None
+
     try:
-        conn = get_db_connection()
+        return psycopg2.connect(
+            host=DB_HOST,
+            database=DB_NAME,
+            user=DB_USER,
+            password=DB_PASSWORD,
+            port=DB_PORT
+        )
+    except Exception:
+        return None
+
+# ===============================
+# Telemetry Storage
+# ===============================
+
+def insert_entry(label: str, value: float, category: str = "row1"):
+
+    try:
+        conn = safe_connect()
+
+        if conn is None:
+            _memory_cache.setdefault(label, []).append(float(value))
+            print("Telemetry stored locally (offline mode)")
+            return
+
         cur = conn.cursor()
-        cur.execute("SELECT value FROM telemetry WHERE label=%s ORDER BY timestamp ASC", (label,))
-        rows = cur.fetchall()
+
+        cur.execute(
+            """
+            INSERT INTO telemetry (label, value, category, timestamp)
+            VALUES (%s,%s,%s,NOW())
+            """,
+            (label, value, category)
+        )
+
+        conn.commit()
         cur.close()
         conn.close()
-        return [r[0] for r in rows] if rows else []
-    except Exception as e:
-        print(f"DB fetch error: {e}")
-        return []
 
-# --- Graph 1: Position + Rate of Change ---
-def plot_entry(entry, position="left"):
-    """
-    Plots a single telemetry entry as:
-    - Position / value over time
-    - Rate of change (derivative)
-    """
+    except Exception:
+        _memory_cache.setdefault(label, []).append(float(value))
+
+# ===============================
+# Data Retrieval
+# ===============================
+
+def fetch_data(label: str):
+
     try:
-        label = entry['label']
-        y_val = float(entry['y'].split()[0])
-        data = fetch_data(label)
+        conn = safe_connect()
 
-        if not data:
-            data = [y_val]  # if no DB data, use current value
-        x = np.arange(len(data))
+        if conn is not None:
+            cur = conn.cursor()
 
-        # Rate of change
-        if len(data) >= 2:
-            dy = np.diff(data) / np.diff(x)
-            dx = x[1:]
-        else:
-            dy = [0]
-            dx = [0]
+            cur.execute(
+                "SELECT value FROM telemetry WHERE label=%s ORDER BY timestamp ASC",
+                (label,)
+            )
 
-        plt.figure(figsize=(8,4))
-        plt.plot(x, data, label="Position / Value", marker='o')
-        plt.plot(dx, dy, label="Rate of Change", linestyle='--', marker='x')
-        plt.xlabel("Time (points)")
-        plt.ylabel("Value / ΔValue")
-        plt.title(f"Telemetry: {label}")
-        plt.legend()
-        plt.show()
-    except Exception as e:
-        print(f"Plot error: {e}")
+            results = cur.fetchall()
 
-# --- Graph 2: Prediction ---
-def plot_prediction(label, x_unit="days", horizon=5):
-    """
-    Fetch data and plot a simple linear prediction
-    """
+            cur.close()
+            conn.close()
+
+            if results:
+                return [float(r[0]) for r in results]
+
+    except Exception:
+        pass
+
+    return _memory_cache.get(label, [])
+
+# ===============================
+# Visualization
+# ===============================
+
+def plot_entry(label: str, y_hint: float = 0):
+
     data = fetch_data(label)
+
+    if not data:
+        data = [y_hint]
+
+    data = list(map(float, data))
+
+    x = np.arange(len(data))
+
+    plt.figure(figsize=(8,4))
+    plt.plot(x, data, marker='o', label="Value")
+
+    if len(data) > 1:
+        dx = np.arange(1, len(data))
+        dy = np.diff(data)
+
+        plt.plot(dx, dy, linestyle="--", marker="x", label="Rate")
+
+    plt.xlabel("Time Index")
+    plt.ylabel("Telemetry Value")
+    plt.title(f"Telemetry: {label}")
+    plt.legend()
+    plt.grid()
+
+    plt.show()
+
+def plot_prediction(label: str, horizon=5):
+
+    data = fetch_data(label)
+
     if not data:
         print(f"No data for {label}")
         return
 
-    x = np.arange(len(data))
-    y = np.array(data)
+    data = np.array(list(map(float, data)))
 
-    # Linear trend prediction
-    if len(y) >= 2:
+    x = np.arange(len(data))
+    y = data
+
+    if len(data) >= 2:
         coef = np.polyfit(x, y, 1)
         trend = np.poly1d(coef)
-        x_pred = np.arange(len(y) + horizon)
-        y_pred = trend(x_pred)
+
+        x_future = np.arange(len(data) + horizon)
+        y_future = trend(x_future)
+
     else:
-        x_pred = np.arange(len(y) + horizon)
-        y_pred = np.append(y, [y[-1]]*horizon)  # repeat last value if only one point
+        x_future = np.arange(len(data) + horizon)
+        y_future = np.append(data, [data[-1]] * horizon)
 
     plt.figure(figsize=(8,4))
-    plt.plot(x_pred, y_pred, marker='o')
+    plt.plot(x_future, y_future, marker='o')
     plt.title(f"Prediction for {label}")
-    plt.xlabel(f"Time ({x_unit})")
+    plt.xlabel("Time")
     plt.ylabel("Value")
+    plt.grid()
+
     plt.show()
