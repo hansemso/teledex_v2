@@ -8,16 +8,17 @@
 def run_quiz():
 
     print("# Exercise 1:")
-    print("# Let d(g(f(x(s)))) represent the following code:\n")
+    print("# Let d(g(f(b))) represent the following code:\n")
 
-    print("def decorator(f):")
-    print("    def wrapper(x):")
-    print("        return 'Hello ' + f(x)")  # Must use f('str') to concatenate.
+    print("def decorator(f):")  # Outer function.
+    print("    def wrapper(b):")  # Inner function.
+    print("        a = 'Hello'")  # combine a + result of g below.  
+    print("        return a + f(b)")  # Must use f('str') to concatenate.
     print("    return wrapper")
     print("")
     print("@decorator")
-    print("def g(x):")  # 'world' binds to x.  
-    print("    return x")
+    print("def g(b):")  # 'world' binds to b.  
+    print("    return b")  # g now returns b explicitly.
     print("")
     print("print(g('world!'))")
 
@@ -26,7 +27,7 @@ def run_quiz():
     score = 0
 
     # Q1
-    q1 = input("Q1: Which letter represents 'wrapper'? ")
+    q1 = input("Q1: Which letter references 'wrapper'? ")
     if q1.strip().lower() == "g":
         print("Correct!")
         score += 1
@@ -47,11 +48,11 @@ def run_quiz():
 
     # Q3
     q3 = input("Q3: Which letter represents 'world!'? ")
-    if q3.strip().lower() == "x":
+    if q3.strip().lower() == "b":
         print("Correct!")
         score += 1
     else:
-        print("Incorrect. The correct answer is: x")
+        print("Incorrect. The correct answer is: b")
 
     print()
 
@@ -70,7 +71,25 @@ def run_quiz():
     else:
         print("Incorrect. The correct answer is: a) apply")
 
-    print(f"\nFinal Score: {score}/4")
+    print()
+
+    # Q5 Multiple Choice
+    print("Q5: After decoration, what does g reference?")
+
+    print("a) original function")
+    print("b) wrapper")
+    print("c) decorator")
+    print("d) string")
+
+    q5 = input("Enter a, b, c, or d: ")
+
+    if q5.strip().lower() == "b":
+        print("Correct! g now references the wrapper function.")
+        score += 1
+    else:
+        print("Incorrect. The correct answer is: b) wrapper")
+
+    print(f"\nFinal Score: {score}/5")
 
     return score
 
