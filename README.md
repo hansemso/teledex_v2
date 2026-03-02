@@ -10,6 +10,8 @@ Teledex is a sticky-note style desktop gui app for general office use with these
     > Column 2 displays "0" by default. Clicking adjacent "UPDATE" icon increments by 1.  Otherwise, can click directly on the input box and enter custom entry.   
     > Column 3 displays "PLOT" button icons for displaying plots for each row of entries. Clicking changes plot by month, week, then day. Plots are displayed in a pop-up window to the left, top, or right of the gui icon for rows 1, 2, or 3 respectively. Clicking again retracts plot back into app.     
 --A weather display with current weather and rain prediction on the gui for convenience.
+--A button for interactive Python quizzes I made for practice.  Topics include:
+    > @decorators
 * More features will be added as this project is developed.  
 
 ## 📊 Example Use Case
@@ -39,30 +41,18 @@ Matplotlib Visualization
 - Combine plots onto one plot.  
 
 
-## Download and Run Teledex on Your Desktop
+## Download Teledex
 
-Follow these steps to try Teledex:
-
-1. **Clone the repository**
-
-Open a terminal or command prompt and run:
+Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/teledex.git
+git clone https://github.com/hansemso/teledex.git
 cd teledex
+```
+## Run Teledex
 
-teledex_gui.py
-│
-├── gui/
-│   ├── telemetry_panel.py
-│   ├── weather_panel.py
-│   ├── control_panel.py  
-│
-├── engines/
-│   ├── quiz_engine.py
-│   ├── py_prac.py
-│   ├── telemetry_engine.py
-│
-├── services/
-│   ├── weather_service.py
-│   ├── db_service.py
+After cloning the repository, run the application using Python:
+
+```bash
+py teledex_gui.py
+```
