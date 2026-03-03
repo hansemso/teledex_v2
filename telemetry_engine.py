@@ -2,7 +2,10 @@
 # Offline-first telemetry storage system
 
 import os
-import psycopg2
+try:
+    import psycopg2
+except:
+    psycopg2 = None
 from dotenv import load_dotenv
 import matplotlib.pyplot as plt
 import numpy as np
@@ -56,13 +59,12 @@ def insert_entry(label: str, value: float, category: str = "row1"):
 
         cur = conn.cursor()
 
-        cur.execute(
-            """
-            INSERT INTO telemetry (label, value, category, timestamp)
-            VALUES (%s,%s,%s,NOW())
-            """,
-            (label, value, category)
-        )
+        sql = """
+        INSERT INTO telemetry (label, value, category, timestamp)
+        VALUES (%s,%s,%s,CURRENT_TIMESTAMP)
+        """
+
+        cur.execute(sql, (label, value, category))
 
         conn.commit()
         cur.close()

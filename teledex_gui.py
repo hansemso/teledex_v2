@@ -5,7 +5,7 @@ import random
 import time
 
 from pgsql_supabase import get_db_connection
-from quiz_engine import run_quiz
+from quiz_engine import questions, check_answer
 from telemetry_engine import plot_entry, plot_prediction
 
 
@@ -229,21 +229,100 @@ def auto_feed():
 
     root.after(60000, auto_feed)
 
+# ===============================
+# QUIZ POPUP SYSTEM
+# ===============================
+
+def open_quiz():
+
+    quiz_window = tk.Toplevel(root)
+    quiz_window.title("Python Quiz")
+    quiz_window.geometry("500x500")
+
+    state = {
+        "index": 0,
+        "score": 0
+    }
+
+    frame = tk.Frame(quiz_window, padx=20, pady=20)
+    frame.pack(fill="both", expand=True)
+
+    display_label = tk.Label(
+        frame,
+        text="",
+        justify="left",
+        wraplength=450,
+        font=("Consolas", 10)
+    )
+    display_label.pack(pady=10)
+
+    entry = tk.Entry(frame, width=40)
+    entry.pack(pady=5)
+
+    result_label = tk.Label(frame, text="")
+    result_label.pack(pady=5)
+
+    def update_question():
+
+        if state["index"] < len(questions):
+
+            q = questions[state["index"]]
+
+            display_text = q["question"]
+
+            if q.get("code"):
+                display_text += "\n\nCode:\n" + q["code"]
+
+            display_label.config(text=display_text)
+            entry.delete(0, tk.END)
+
+        else:
+            display_label.config(
+                text=f"Quiz Finished!\nScore: {state['score']}/{len(questions)}"
+            )
+
+    def submit():
+
+        if state["index"] >= len(questions):
+            return
+
+        user_answer = entry.get().strip().lower()
+
+        if check_answer(state["index"], user_answer):
+            state["score"] += 1
+            result_label.config(text="Correct!")
+        else:
+            correct = questions[state["index"]]["answer"]
+            result_label.config(
+                text=f"Incorrect. Correct answer: {correct}"
+            )
+
+        state["index"] += 1
+        update_question()
+
+    tk.Button(
+        frame,
+        text="Submit",
+        command=submit,
+        width=15
+    ).pack(pady=10)
+
+    update_question()
+
 
 # ===============================
 # LEARNING TOOL PANEL
 # ===============================
 
-control_frame = tk.LabelFrame(root, text="Learning Tools", padx=10, pady=10)
-control_frame.pack(fill="x", pady=10)
+tool_frame = tk.LabelFrame(root, text="Learning Tools", padx=10, pady=10)
+tool_frame.pack(fill="x", pady=10)
 
 tk.Button(
-    control_frame,
+    tool_frame,
     text="Python Quizzes",
     width=25,
-    command=run_quiz
+    command=open_quiz
 ).pack(pady=10)
-
 
 # ===============================
 # APP STARTUP
