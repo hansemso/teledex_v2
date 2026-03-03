@@ -43,7 +43,7 @@ Run practice mode:
 
 ```bash
 python run_sql_practice.py
-
+```
 ## 📌 Future Enhancements
 
 - --A 3 x 1 row user input/display field comprising: 
