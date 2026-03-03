@@ -30,6 +30,19 @@ Supabase (PostgreSQL)
      ↓
 Matplotlib Visualization
 ```
+## SQL Practice Module
+
+Teledex includes a lightweight SQL learning practice tool.
+
+Features:
+- In-memory SQLite training database
+- 5 SQL exercises covering: SELECT queries, WHERE filtering, JOIN operations, GROUP BY aggregation
+- Result validation engine
+
+Run practice mode:
+
+```bash
+python run_sql_practice.py
 
 ## 📌 Future Enhancements
 
@@ -39,7 +52,6 @@ Matplotlib Visualization
     > security: Displays enterer's name. Requests security code if secure database entered in column 1. 
 - Android version
 - Combine plots onto one plot.  
-
 
 ## Download Teledex
 
