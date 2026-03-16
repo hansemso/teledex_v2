@@ -1,0 +1,193 @@
+[
+  {
+    "id": "4",
+    "code": "#*** Python Class vs JavaScript Class ***\n\n+---------------------------+---------------------------+\n| Python                    | JavaScript                |\n+---------------------------+---------------------------+\n| class C:                  | class C {                 |  \n|     def __init__(self):   |     constructor() {       |    \n|         self.x = 10       |         this.x = 10;      |  \n|                           |     }                     |\n|     def mthd(self):       |                           |  \n|         return self.x     |     mthd() {              |\n|                           |         return this.x;    |\n| p = C()                   |     }                     |\n| p.mthd()                  | }                         |\n|                           | const p = new C();        |\n|                           | p.mthd();                 |\n+---------------------------+---------------------------+",
+    "qa": [
+      {
+        "question": "In which language are functions always independent? (js or py)",
+        "answer": "js"
+      },
+      {
+        "question": "Which language automatically binds instance context during method retrieval?",
+        "answer": "py"
+      },
+      {
+        "question": "In which language is p.mthd() not bound?  (js/py)",
+        "answer": "js"
+      },
+      {
+        "question": "Which language always passes a reference explicitly to p as the first parameter?",
+        "answer": "py"
+      },
+      {
+        "question": "How and when does JS pass reference then? Fill in: __________ly  at  ____ time. (Use comma, no whitespace)",
+        "answer": "implicitly,call"
+      },
+      {
+        "question": "Which language needs bind() to bind its reference object?  (py/js)",
+        "answer": "js"
+      },
+      {
+        "question": "Which reference object can be hijacked by another function and when?  Fill in: ____ at ____ time.",
+        "answer": "this,call"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "code": "#***** JS_vs_Py_retrieval_1 *****\n\nCompare JS vs Py retrieval means:  \n\nconst j = prop.attr;      p = attr.mthd\nj();                      p()  \n",
+    "qa": [
+      {
+        "question": "Which operation has no automatic descriptor binding at access time? (js or py)",
+        "answer": "js"
+      },
+      {
+        "question": "Which output uses context at call time instead of binding at access time? (js or py)",
+        "answer": "js"
+      },
+      {
+        "question": "What is the name of the instance reference object?",
+        "answer": "attr"
+      },
+      {
+        "question": "What is the function reference variable name?",
+        "answer": "j"
+      },
+      {
+        "question": "*Bonus question: Internally, which dunder method is invoked first during attribute retrieval and on which object? (Type in exactly separated by a comma with no whitespace)",
+        "answer": "__getattribute__,attr"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "code": "# ******* @decorator at runtime **********\ndef decorator(func):\n    def wrapper(a, b):\n        return func(a, b) * 7\n    return wrapper\n\n@decorator\ndef add(a, b)\n    return a + b\n\nprint(add(3,4))\n\n",
+    "qa": [
+      {
+        "question": "Which function is the kernel/innermost function?",
+        "answer": "add"
+      },
+      {
+        "question": "Which function is the outermost function?",
+        "answer": "decorator"
+      },
+      {
+        "question": "Which function contains all of the math?",
+        "answer": "wrapper"
+      },
+      {
+        "question": "What is the output?",
+        "answer": "77"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "code": "#*** Py self vs JS this ***\n\n+-----------------------------+--------------------------------------+\n| Python                      | JavaScript                           |\n+-----------------------------+--------------------------------------+\n| class C:                    | class C {                            |\n|     def __init__():         |     constructor() {                  |\n|         self.self = self    |         this.u = this;               |\n|                             |     }                                |\n|     def mthd():             |     mthd() {                         |\n|         return self.self    |         return this.u;               |\n|                             |     }                                |\n| i = C()  # i = instance     | const i = new C();  // i = instance  |\n|                             |                                      | \n| print(i.mthd())             | console.log(i.mthd());               |\n| print(i.mthd() is i)        | console.log(i.mthd() === i);         |\n+-----------------------------+--------------------------------------+",
+    "qa": [
+      {
+        "question": "What will be the first print output? a)True b)False  c)TypeError d)self  (a,b,c, or d)",
+        "answer": "c"
+      },
+      {
+        "question": "What will be the first console output? a)True b)False c)TypeError d)Circular",
+        "answer": "d"
+      },
+      {
+        "question": "What will be the second print output? a)True b)False c)TypeError d)self",
+        "answer": "c"
+      },
+      {
+        "question": "What will be the second console output?",
+        "answer": "true"
+      },
+      {
+        "question": "Let __init__(self)__ and mthd(self). What will be the first print output? a)TypeError b)self c)<__main__.C address> d)Circular",
+        "answer": "c"
+      },
+      {
+        "question": "Let  __init__(self)__ and mthd(self). What will be the second print output? a)True b)False c)TypeError d)<__main__.C address> e)self",
+        "answer": "a"
+      },
+      {
+        "question": "In which language is i.mthd() not bound?  (js/py)",
+        "answer": "js"
+      }
+    ]
+  },
+  {
+    "id": "1",
+    "code": "#******* decorators again *******\n\nGiven:\n\ndef decoration\n    def wrapper\n\n",
+    "qa": [
+      {
+        "question": "Write its closest equivalent using new_wrapper and wrapper with no white_space",
+        "answer": "new_wrapper=decoration(wrapper)"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "code": "#**** index filter ****\n\nfiltered = []\n\nfor card in study_bank:\n    cid = int(card['id'])\n    if start <= cid <= end:\n        filtered.append(card)\n",
+    "qa": [
+      {
+        "question": "Which function parses the string and creates an integer?",
+        "answer": "int()"
+      },
+      {
+        "question": "Which is the indexing syntax?",
+        "answer": "card[]"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "code": "\\033[34m#******* Python's @dataclass @property *********\\033[0m\n\nfrom dataclasses import dataclass        |# With decorator                       |# Long form w/o decorator                         \n                                         |                                       |\n@dataclass                               |                                       |\nclass Rectangle:                         |  class Rectangle:                     |  class Rectangle:\n    width: int                           |      def __init__(self, w, h):        |      def __init__(self, w, h):\n    height: int                          |          self.width = w               |          self.width = w\n                                         |              self.height = h          |              self.height = h                                            \n    @property                            |                                       |\n    def area(self):                      |              @property                |          def area(self):                               \n        return self.width * self.height  |                  def area(self):      |                           \n                                         |                                       |      return self.width * self.height \nr = Rectangle(4, 5)                      |      return self.width * self.height  |         \n                                         |                                       |      area = property(area)  \nprint(r.area)                            |                                       |\n\n                  # attribute_name = property(method_name)\n",
+    "qa": [
+      {
+        "question": "Which syntax automatically generates __init__, __repr__, and __eq__ methods?",
+        "answer": "@dataclass"
+      },
+      {
+        "question": "Which syntax turns a method into an attribute?",
+        "answer": "@property"
+      },
+      {
+        "question": "Which method() into which .attribute? (comma,no_white_space)",
+        "answer": "area(),.area"
+      },
+      {
+        "question": "In JS a method belongs to any ______, but in Py it belongs only to a ______. (comma,no_white_space)",
+        "answer": "object,class"
+      },
+      {
+        "question": "In Pythonese, what do 'r' and 'area' each stand for in 'r.area'? (comma,no_white_space)",
+        "answer": "instance,attribute"
+      },
+      {
+        "question": "What computed instance attribute does @property create?",
+        "answer": "r.area"
+      },
+      {
+        "question": "What is the long-form equivalent of @property? (no_white_space)",
+        "answer": "attribute = property(function)"
+      },
+      {
+        "question": "Which dunder method does @dataclass automatically generate? (w/o delimiter)",
+        "answer": "__init__"
+      },
+      {
+        "question": "In both Py and JS, any .name() is always a ______ and never an _________ because it is ___able by \\033\\[35mdelimiter\\033\\[0m. (comma,no_white_space)\")",
+        "answer": "method,attribute,callable"
+      }
+    ]
+  },
+  {
+    "code": "py gui/quiz_gui.py\n",
+    "qa": [
+      {
+        "question": "You entered the above in the terminal\nand nothing happened.  What does it \nmean? ",
+        "answer": "That means the GUI startup code \nnever runs at all inside quiz_gui.py."
+      }
+    ]
+  }
+]
