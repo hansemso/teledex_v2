@@ -1,37 +1,47 @@
-# Teledex
+Teledex v2 – Learning Tools GUI
 
-**Teledex** is a modular desktop learning tool built with **Python** and **DearPyGui**.  
-It features interactive quizzes, telemetry monitoring, weather updates, and automated feed management.
+Teledex v2 is a desktop learning app built with Python and DearPyGUI, designed to help users study code, quiz themselves, and track telemetry and other learning data. This version is a full rewrite of the original Teledex, modernized with modular GUI and backend structure.
 
----
+Features
 
-## Features
+Interactive Quiz Module – Study and test yourself with code snippets and Q&A cards.
 
-### Quiz Module
-- Add, edit, and delete flashcards.
-- Multi-line questions and answers.
-- Code snippet support in cards.
-- Score tracking and feedback.
+Telemetry Module – View and log learning progress or custom telemetry data.
 
-### Telemetry
-- Displays telemetry data in a simple, testable GUI.
+Weather Module – Display current weather conditions.
 
-### Weather
-- Shows current weather for configured locations.
+Auto-Feed Module – Automate updates or scheduled tasks.
 
-### Auto Feed
-- Simulates automated feeds for learning or testing purposes.
+CRUD for Study Cards – Add, edit, and delete study cards dynamically.
 
----
+Logging – All app activity is logged for debugging and progress tracking.
 
-## Screenshots / Demo
-*(Include screenshots or GIFs here — e.g., quiz in action, adding a card)*
+Installation
 
----
+Clone the repository:
+git clone https://github.com/hansemso/teledex_v2.git
+cd teledex_v2
 
-## Installation
+py -m pip install -r requirements.txt
 
-1. Clone the repository:
-```bash
-git clone https://github.com/<hansemso>/TeledexF.git
-cd TeledexF
+py main.py
+
+teledex_v2/
+│
+├─ main.py              # App entry point
+├─ requirements.txt     # Dependencies
+├─ gui/                 # DearPyGUI interface modules
+│   ├─ quiz_gui.py
+│   ├─ telemetry_gui.py
+│   ├─ weather_gui.py
+│   └─ auto_feed_gui.py
+├─ engine/              # Backend logic modules
+│   ├─ quiz_engine.py
+│   ├─ telemetry_engine.py
+│   ├─ weather_engine.py
+│   └─ auto_feed_engine.py
+├─ utils/               # Utility files
+│   ├─ logger.py
+│   └─ study_cards_v2.json
+├─ teledex.db           # SQLite database (optional)
+└─ teledex.log          # App log file
