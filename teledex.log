@@ -1,0 +1,264 @@
+2026-03-13 23:07:04,225 [main] INFO Starting Teledex
+2026-03-13 23:07:04,226 [main] ERROR Telemetry module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 18, in setup_teledex
+    telemetry_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\telemetry_gui.py", line 7, in build_frame
+    with window("Telemetry", width=600, height=250):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-13 23:07:04,240 [main] ERROR Weather module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 25, in setup_teledex
+    weather_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\weather_gui.py", line 6, in build_frame
+    with window("Weather", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-13 23:07:04,240 [main] ERROR Quiz module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 32, in setup_teledex
+    quiz_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\quiz_gui.py", line 7, in build_frame
+    with window("Learning Tools", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-13 23:07:04,242 [main] INFO Auto feed started
+2026-03-14 00:09:16,175 [main] INFO Starting Teledex
+2026-03-14 00:09:16,175 [main] ERROR Telemetry module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 16, in setup_teledex
+    telemetry_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\telemetry_gui.py", line 7, in build_frame
+    with window("Telemetry", width=600, height=250):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:09:16,176 [main] ERROR Weather module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 23, in setup_teledex
+    weather_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\weather_gui.py", line 6, in build_frame
+    with window("Weather", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:09:16,177 [main] ERROR Quiz module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 30, in setup_teledex
+    quiz_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\quiz_gui.py", line 7, in build_frame
+    with window("Learning Tools", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:09:16,179 [main] INFO Auto feed started
+2026-03-14 00:31:47,867 [main] INFO Starting Teledex
+2026-03-14 00:31:47,868 [main] ERROR Telemetry module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 16, in setup_teledex
+    telemetry_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\telemetry_gui.py", line 7, in build_frame
+    with window("Telemetry", width=600, height=250):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:31:47,869 [main] ERROR Weather module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 23, in setup_teledex
+    weather_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\weather_gui.py", line 6, in build_frame
+    with window("Weather", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:31:47,869 [main] ERROR Quiz module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 30, in setup_teledex
+    quiz_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\quiz_gui.py", line 7, in build_frame
+    with window("Learning Tools", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:31:47,876 [main] INFO Auto feed started
+2026-03-14 00:41:11,649 [main] INFO Starting Teledex
+2026-03-14 00:41:11,649 [main] ERROR Telemetry module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 16, in setup_teledex
+    telemetry_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\telemetry_gui.py", line 7, in build_frame
+    with window("Telemetry", width=600, height=250):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:41:11,650 [main] ERROR Weather module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 23, in setup_teledex
+    weather_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\weather_gui.py", line 6, in build_frame
+    with window("Weather", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:41:11,650 [main] ERROR Quiz module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 30, in setup_teledex
+    quiz_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\quiz_gui.py", line 7, in build_frame
+    with window("Learning Tools", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:41:11,652 [main] INFO Auto feed started
+2026-03-14 00:44:31,139 [main] INFO Starting Teledex
+2026-03-14 00:44:31,139 [main] ERROR Telemetry module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 16, in setup_teledex
+    telemetry_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\telemetry_gui.py", line 27, in build_frame
+    with window("Telemetry", width=600, height=200):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:44:31,140 [main] ERROR Weather module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 23, in setup_teledex
+    weather_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\weather_gui.py", line 6, in build_frame
+    with window("Weather", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:44:31,141 [main] ERROR Quiz module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 30, in setup_teledex
+    quiz_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\quiz_gui.py", line 7, in build_frame
+    with window("Learning Tools", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:44:31,143 [main] INFO Auto feed started
+2026-03-14 00:46:19,617 [main] INFO Starting Teledex
+2026-03-14 00:46:19,617 [main] ERROR Telemetry module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 16, in setup_teledex
+    telemetry_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\telemetry_gui.py", line 27, in build_frame
+    with window("Telemetry", width=600, height=200):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:46:19,618 [main] ERROR Weather module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 23, in setup_teledex
+    weather_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\weather_gui.py", line 6, in build_frame
+    with window("Weather", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:46:19,619 [main] ERROR Quiz module failed
+Traceback (most recent call last):
+  File "C:\Users\hanse\Documents\TeledexF\main.py", line 30, in setup_teledex
+    quiz_gui.build_frame()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\hanse\Documents\TeledexF\gui\quiz_gui.py", line 7, in build_frame
+    with window("Learning Tools", width=600, height=150):
+         ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 305, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "C:\Users\hanse\AppData\Local\Programs\Python\Python314\Lib\contextlib.py", line 109, in __init__
+    self.gen = func(*args, **kwds)
+               ~~~~^^^^^^^^^^^^^^^
+TypeError: window() takes 0 positional arguments but 1 positional argument (and 2 keyword-only arguments) were given
+2026-03-14 00:46:19,624 [main] INFO Auto feed started
